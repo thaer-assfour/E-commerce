@@ -22,19 +22,21 @@ class _SplashScreenState extends State<SplashScreen> {
 
     return Scaffold(
         backgroundColor: Colors.white,
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+        ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Container(
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height / 10),
                 child: Text(
-                  "${getLang(context, "splashTitle")}",
-                  style: TextStyle(
-                      color: Color(0xff6990B9),
-                      fontSize: 40,
-                      fontWeight: FontWeight.bold),
-                )),
+              "${getLang(context, "splashTitle")}",
+              style: TextStyle(
+                  color: Color(0xff6990B9),
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold),
+            )),
             Expanded(
               // height: MediaQuery.of(context).size.height * 0.65,
               child: PageView.builder(
@@ -56,8 +58,8 @@ class _SplashScreenState extends State<SplashScreen> {
             ),
             Container(
                 width: MediaQuery.of(context).size.width * 0.6,
-                margin: EdgeInsets.all(24),
-                padding: EdgeInsets.all(8),
+                margin: EdgeInsets.only(top: 8, bottom: 24),
+                padding: EdgeInsets.all(6),
                 decoration: BoxDecoration(
                     color: Color(0xff6990B9).withOpacity(0.8),
                     border: Border.all(color: Colors.black12),
@@ -69,7 +71,8 @@ class _SplashScreenState extends State<SplashScreen> {
                     style: TextStyle(
                         fontSize: 24,
                         color: Colors.white,
-                        fontWeight: FontWeight.w500,letterSpacing: 1.4),
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1.4),
                   ),
                   onTap: () {},
                 ))
