@@ -7,6 +7,8 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
 
+  // add var to get list from splashTextList arabic or english
+
 
 
 
@@ -14,10 +16,20 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
-                 child: Column(
-                     children: [
-                       Text("My Store Online",style: TextStyle(color: Colors.lightBlue,fontSize: 30,fontStyle: FontStyle.italic),),
-                               ],
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 10,bottom: MediaQuery.of(context).size.height / 15),
+              child: Text(
+            "My Store Online",
+            style: TextStyle(
+                color: Colors.lightBlue,
+                fontSize: 30,
+                fontStyle: FontStyle.italic),
+          )),
+
+        ],
       ),
     ));
   }
