@@ -16,10 +16,11 @@ class _MyStoreState extends State<MyStore> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'OpenSans'),
       home: SplashScreen(),
-     /* localizationsDelegates: [
+      localizationsDelegates: [
         AppLocale.delegate ,
         GlobalMaterialLocalizations.delegate ,
         GlobalWidgetsLocalizations.delegate
@@ -28,7 +29,7 @@ class _MyStoreState extends State<MyStore> {
         Locale("en"  , "") ,
         Locale("ar"  , "") ,
       ] ,
-      locale: Locale("ar" , ""),
+      // locale: Locale("ar" , ""), //set default lang for app
       localeResolutionCallback:( currentLang , supportLang ){
         if (currentLang != null) {
           for (Locale locale in supportLang) {
@@ -39,7 +40,7 @@ class _MyStoreState extends State<MyStore> {
         }
         return supportLang.first ;
       } ,
-*/
+
     );
   }
 }

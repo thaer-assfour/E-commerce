@@ -1,3 +1,5 @@
+import 'package:e_commerce/pages/splash/splashListText.dart';
+import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -6,26 +8,30 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   // add var to get list from splashTextList arabic or english
-
   @override
   Widget build(BuildContext context) {
+    String languageCode =
+        (Localizations.localeOf(context).toString()).substring(0, 2);
+    List splashList = splashListTextEN;
+    if (languageCode == "ar") splashList = splashListTextAR;
+
+
     return Scaffold(
         body: SafeArea(
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Container(
-            margin: EdgeInsets.only(top: MediaQuery.of(context).size.height / 10,bottom: MediaQuery.of(context).size.height / 15),
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height / 10,
+                  bottom: MediaQuery.of(context).size.height / 15),
               child: Text(
-            "My Store Online",
-            style: TextStyle(
-                color: Colors.lightBlue,
-                fontSize: 30,
-                fontStyle: FontStyle.italic),
-          )),
-
+                "${getLang(context, "splashTitle")}",
+                style: TextStyle(
+                    color: Colors.lightBlue,
+                    fontSize: 30),
+              )),
         ],
       ),
     ));
