@@ -9,9 +9,6 @@ class _SplashScreenState extends State<SplashScreen> {
 
   // add var to get list from splashTextList arabic or english
 
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
