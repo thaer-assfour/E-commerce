@@ -14,6 +14,7 @@ class _MyStoreState extends State<MyStore> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: SplashScreen(),
     );
   }
