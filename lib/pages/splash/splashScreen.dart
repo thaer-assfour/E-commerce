@@ -25,6 +25,10 @@ class _SplashScreenState extends State<SplashScreen> {
         appBar: AppBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          actionsIconTheme: IconThemeData(color: Color(0xff6990B9)),
+          actions: [
+            IconButton(icon: Icon(Icons.language), onPressed: () {  },),
+          ],
         ),
         body: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
