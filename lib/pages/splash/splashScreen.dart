@@ -1,7 +1,9 @@
 import 'package:e_commerce/pages/splash/splashListText.dart';
+import 'package:e_commerce/pages/splash/splashPageDetails.dart';
 import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,6 +36,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       fontWeight: FontWeight.bold),
                 )),
             Expanded(
+              // height: MediaQuery.of(context).size.height * 0.65,
               child: PageView.builder(
                   controller: pageController,
                   itemCount: splashList.length,
@@ -42,41 +45,35 @@ class _SplashScreenState extends State<SplashScreen> {
                         splashList[index]); //welcome widget
                   }),
             ),
+            SmoothPageIndicator(
+              controller: pageController,
+              count: splashList.length,
+              effect: ExpandingDotsEffect(
+                  dotHeight: 10,
+                  dotWidth: 10,
+                  activeDotColor: Colors.orange[300],
+                  dotColor: Color(0xff6990B9)),
+            ),
+            Container(
+                width: MediaQuery.of(context).size.width * 0.6,
+                margin: EdgeInsets.all(24),
+                padding: EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                    color: Color(0xff6990B9).withOpacity(0.8),
+                    border: Border.all(color: Colors.black12),
+                    borderRadius: BorderRadius.circular(24)),
+                child: InkWell(
+                  child: Text(
+                    "${getLang(context, "GetStartedSplash")}",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(
+                        fontSize: 24,
+                        color: Colors.white,
+                        fontWeight: FontWeight.w500,letterSpacing: 1.4),
+                  ),
+                  onTap: () {},
+                ))
           ],
         ));
-  }
-}
-
-class SplashPageDetails extends StatelessWidget {
-  final list;
-
-  SplashPageDetails(this.list);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Image.asset(
-          list['image'],
-          width: MediaQuery.of(context).size.width / 1.2,
-        ),
-        Text(
-          list['title'],
-          textAlign: TextAlign.center,
-          style: TextStyle(
-              color: Colors.orange, fontSize: 20, fontWeight: FontWeight.w600),
-        ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Text(
-            list['description'],
-            textAlign: TextAlign.center,
-            style: TextStyle(
-                color: Colors.grey, fontSize: 20, fontWeight: FontWeight.w200),
-          ),
-        ),
-      ],
-    );
   }
 }

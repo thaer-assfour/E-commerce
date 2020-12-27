@@ -29,7 +29,7 @@ class _MyStoreState extends State<MyStore> {
         Locale("en"  , "") ,
         Locale("ar"  , "") ,
       ] ,
-      // locale: Locale("ar" , ""), //set default lang for app
+       // locale: Locale("ar" , ""), //set default lang for app
       localeResolutionCallback:( currentLang , supportLang ){
         if (currentLang != null) {
           for (Locale locale in supportLang) {
