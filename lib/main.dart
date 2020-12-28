@@ -1,6 +1,7 @@
 import 'package:e_commerce/pages/splash/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/services/appLocal.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -21,8 +22,13 @@ class MyStore extends StatefulWidget {
 class _MyStoreState extends State<MyStore> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
 
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]); // #force to set Orientations to portrait only.
+
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'OpenSans'),
       home: SplashScreen(),
