@@ -2,8 +2,8 @@ import 'package:e_commerce/pages/splash/splashListText.dart';
 import 'package:e_commerce/pages/splash/splashPageDetails.dart';
 import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
+import 'package:e_commerce/services/languageService.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,14 +12,6 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   PageController pageController = PageController(initialPage: 0);
-
-  void changeDefaultLang (BuildContext context){
-    if (Localizations.localeOf(context).languageCode == "ar")
-      mySharedPreferences.setString("Lang", "en");
-    else
-      mySharedPreferences.setString("Lang", "ar");
-    Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MyStore()));
-  }
 
 
   @override
