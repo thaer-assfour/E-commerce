@@ -3,6 +3,7 @@ import 'package:e_commerce/pages/splash/splashPageDetails.dart';
 import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:e_commerce/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -13,10 +14,11 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   PageController pageController = PageController(initialPage: 0);
 
+
+
   @override
   Widget build(BuildContext context) {
-    String languageCode =
-        (Localizations.localeOf(context).toString()).substring(0, 2);
+    String languageCode = (Localizations.localeOf(context).languageCode);
     List splashList = splashListTextEN;
     if (languageCode == "ar") splashList = splashListTextAR;
 
@@ -27,7 +29,18 @@ class _SplashScreenState extends State<SplashScreen> {
           elevation: 0,
           actionsIconTheme: IconThemeData(color: Color(0xff6990B9)),
           actions: [
-            IconButton(icon: Icon(Icons.language), onPressed: () {  },),
+            IconButton(
+              icon: Icon(Icons.language),
+              onPressed: () {
+                setState(() {
+                   if (Localizations.localeOf(context).languageCode == "ar")
+                     mySharedPreferences.setString("Lang", "en");
+                   else
+                     mySharedPreferences.setString("Lang", "ar");
+                     Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => MyStore()));
+                });
+              },
+            ),
           ],
         ),
         body: Column(

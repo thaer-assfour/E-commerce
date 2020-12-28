@@ -2,8 +2,14 @@ import 'package:e_commerce/pages/splash/splashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-void main() {
+
+SharedPreferences mySharedPreferences;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  mySharedPreferences = await SharedPreferences.getInstance();
   runApp(MyStore());
 }
 
@@ -29,11 +35,12 @@ class _MyStoreState extends State<MyStore> {
         Locale("en"  , "") ,
         Locale("ar"  , "") ,
       ] ,
-       // locale: Locale("ar" , ""), //set default lang for app
+      locale: Locale("${mySharedPreferences.getString("Lang")}" , ""), //set default lang for app
       localeResolutionCallback:( currentLang , supportLang ){
         if (currentLang != null) {
           for (Locale locale in supportLang) {
             if (locale.languageCode == currentLang.languageCode) {
+              mySharedPreferences.setString("Lang", currentLang.languageCode);
               return currentLang ;
             }
           }
