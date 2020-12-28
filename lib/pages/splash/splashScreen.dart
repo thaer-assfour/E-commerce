@@ -20,80 +20,83 @@ class _SplashScreenState extends State<SplashScreen> {
     List splashList = splashListTextEN;
     if (languageCode == "ar") splashList = splashListTextAR;
 
-    return Stack(
-      children: [
-
-       Positioned(child:  Scaffold(
-            backgroundColor: Colors.white,
-            appBar: AppBar(
+    return SafeArea(
+      child: Stack(
+        children: [
+          Positioned(child: Container(color: Colors.white,)),
+          Positioned(child: SplashTopPainter()),
+        /* Positioned(child:  Scaffold(
               backgroundColor: Colors.transparent,
-              elevation: 0,
-              actionsIconTheme: IconThemeData(color: Color(0xff6990B9)),
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.language),
-                  onPressed: () {
-                    setState(() {
-                      changeDefaultLang(context);
-                    });
-                  },
-                ),
-              ],
-            ),
-            body: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Container(
-                    child: Text(
-                      "${getLang(context, "splashTitle")}",
-                      style: TextStyle(
-                          color: Color(0xff6990B9),
-                          fontSize: 40,
-                          fontWeight: FontWeight.bold),
-                    )),
-                Expanded(
-                  child: PageView.builder(
-                      controller: pageController,
-                      itemCount: splashList.length,
-                      itemBuilder: (context, index) {
-                        return SplashPageDetails(
-                            splashList[index]); //welcome widget
-                      }),
-                ),
-                SmoothPageIndicator(
-                  controller: pageController,
-                  count: splashList.length,
-                  effect: ExpandingDotsEffect(
-                      dotHeight: 10,
-                      dotWidth: 10,
-                      activeDotColor: Colors.orange[300],
-                      dotColor: Color(0xff6990B9)),
-                ),
-                Container(
-                    width: MediaQuery.of(context).size.width * 0.6,
-                    margin: EdgeInsets.only(top: 8, bottom: 24),
-                    padding: EdgeInsets.all(6),
-                    decoration: BoxDecoration(
-                        color: Color(0xff6990B9).withOpacity(0.8),
-                        border: Border.all(color: Colors.black12),
-                        borderRadius: BorderRadius.circular(24)),
-                    child: InkWell(
+              appBar: AppBar(
+                backgroundColor: Colors.transparent,
+                elevation: 0,
+                actionsIconTheme: IconThemeData(color: Color(0xff6990B9)),
+                actions: [
+                  IconButton(
+                    icon: Icon(Icons.language),
+                    onPressed: () {
+                      setState(() {
+                        changeDefaultLang(context);
+                      });
+                    },
+                  ),
+                ],
+              ),
+              body: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Container(
                       child: Text(
-                        "${getLang(context, "GetStartedSplash")}",
-                        textAlign: TextAlign.center,
+                        "${getLang(context, "splashTitle")}",
                         style: TextStyle(
-                            fontSize: 24,
-                            color: Colors.white,
-                            fontWeight: FontWeight.w500,
-                            letterSpacing: 1.4),
-                      ),
-                      onTap: () {},
-                    ))
-              ],
-            )),),
-        Positioned(child: SplashTopPainter()),
+                            color: Color(0xff6990B9),
+                            fontSize: 40,
+                            fontWeight: FontWeight.bold),
+                      )),
+                  Expanded(
+                    child: PageView.builder(
+                        controller: pageController,
+                        itemCount: splashList.length,
+                        itemBuilder: (context, index) {
+                          return SplashPageDetails(
+                              splashList[index]); //welcome widget
+                        }),
+                  ),
+                  SmoothPageIndicator(
+                    controller: pageController,
+                    count: splashList.length,
+                    effect: ExpandingDotsEffect(
+                        dotHeight: 10,
+                        dotWidth: 10,
+                        activeDotColor: Colors.orange[300],
+                        dotColor: Color(0xff6990B9)),
+                  ),
+                  Container(
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      margin: EdgeInsets.only(top: 8, bottom: 24),
+                      padding: EdgeInsets.all(6),
+                      decoration: BoxDecoration(
+                          color: Color(0xff6990B9).withOpacity(0.8),
+                          border: Border.all(color: Colors.black12),
+                          borderRadius: BorderRadius.circular(24)),
+                      child: InkWell(
+                        child: Text(
+                          "${getLang(context, "GetStartedSplash")}",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                              fontSize: 24,
+                              color: Colors.white,
+                              fontWeight: FontWeight.w500,
+                              letterSpacing: 1.4),
+                        ),
+                        onTap: () {},
+                      ))
+                ],
+              )),),*/
 
-      ],
+
+        ],
+      ),
     );
   }
 }

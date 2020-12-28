@@ -3,8 +3,9 @@ import 'package:flutter/material.dart';
 class SplashTopPainter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return CustomPaint(child: Container(),painter: PathPainter(),
-
+    return CustomPaint(
+      child: Container(),
+      painter: PathPainter(),
     );
   }
 }
@@ -12,20 +13,21 @@ class SplashTopPainter extends StatelessWidget {
 class PathPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
-    Paint paint = Paint()
-      ..color = Colors.red
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = 8.0;
-
     Path path = Path();
-    path.lineTo(0, 0);
-    path.lineTo(size.width, 0);
+    Paint paint = Paint();
 
-    path.quadraticBezierTo(size.width / 2, size.height/4, size.width, size.height / 5 );
-    path.close();
+    path.lineTo(0.0, size.height * 0.2);
+
+    path.quadraticBezierTo(
+        size.width / 5, size.height * 0.3, size.width / 5, size.height * 0.2);
+
+    path.quadraticBezierTo(size.width *0.75, size.height * 0.2,
+        size.width, size.height * 0.1);
+
+    path.lineTo(size.width, 0.0);
+
+    paint.color = Colors.orangeAccent.withOpacity(0.3);
     canvas.drawPath(path, paint);
-
-
   }
 
   @override
