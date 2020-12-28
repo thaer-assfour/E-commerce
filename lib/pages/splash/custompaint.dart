@@ -16,17 +16,15 @@ class PathPainter extends CustomPainter {
     Path path = Path();
     Paint paint = Paint();
 
-    path.lineTo(0.0, size.height * 0.2);
+    path.lineTo(0.0, size.height * 0.10);
 
     path.quadraticBezierTo(
-        size.width / 5, size.height * 0.3, size.width / 5, size.height * 0.2);
+        size.width / 2, size.height * 0.01, size.width  , size.height * 0.11);
 
-    path.quadraticBezierTo(size.width *0.75, size.height * 0.2,
-        size.width, size.height * 0.1);
 
     path.lineTo(size.width, 0.0);
 
-    paint.color = Colors.orangeAccent.withOpacity(0.3);
+    paint.color = Color(0xff6990B9)/*Colors.orangeAccent.withOpacity(0.9)*/;
     canvas.drawPath(path, paint);
   }
 

@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
         children: [
           Positioned(child: Container(color: Colors.white,)),
           Positioned(child: SplashTopPainter()),
-        /* Positioned(child:  Scaffold(
+         Positioned(child:  Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
                 backgroundColor: Colors.transparent,
@@ -33,7 +33,7 @@ class _SplashScreenState extends State<SplashScreen> {
                 actionsIconTheme: IconThemeData(color: Color(0xff6990B9)),
                 actions: [
                   IconButton(
-                    icon: Icon(Icons.language),
+                    icon: Icon(Icons.language,color: Colors.white/* Color(0xff6990B9)*/,),
                     onPressed: () {
                       setState(() {
                         changeDefaultLang(context);
@@ -92,7 +92,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         onTap: () {},
                       ))
                 ],
-              )),),*/
+              )),),
 
 
         ],
