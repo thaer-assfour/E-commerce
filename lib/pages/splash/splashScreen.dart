@@ -1,7 +1,6 @@
 import 'package:e_commerce/pages/splash/splashListText.dart';
 import 'package:e_commerce/pages/splash/splashPageDetails.dart';
 import 'package:e_commerce/services/appLocal.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/main.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
