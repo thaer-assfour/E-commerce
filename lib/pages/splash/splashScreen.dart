@@ -49,7 +49,6 @@ class _SplashScreenState extends State<SplashScreen> {
                   fontWeight: FontWeight.bold),
             )),
             Expanded(
-              // height: MediaQuery.of(context).size.height * 0.65,
               child: PageView.builder(
                   controller: pageController,
                   itemCount: splashList.length,
