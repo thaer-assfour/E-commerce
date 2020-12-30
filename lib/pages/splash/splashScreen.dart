@@ -1,3 +1,5 @@
+
+
 import 'package:e_commerce/pages/splash/custompaint.dart';
 import 'package:e_commerce/pages/splash/splashListText.dart';
 import 'package:e_commerce/pages/splash/splashPageDetails.dart';
@@ -13,6 +15,18 @@ class SplashScreen extends StatefulWidget {
 
 class _SplashScreenState extends State<SplashScreen> {
   PageController pageController = PageController(initialPage: 0);
+  bool animate = false;
+
+  @override
+  void initState() {
+
+    super.initState();
+    Future.delayed(const Duration(milliseconds: 100), () {
+      animate = true;
+    });
+
+
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +38,9 @@ class _SplashScreenState extends State<SplashScreen> {
       child: Stack(
         children: [
           Positioned(child: Container(color: Colors.white,)),
-          Positioned(child: SplashTopPainter()),
+          Positioned(child: AnimatedContainer(height: animate ? MediaQuery.of(context).size.height * 0.9 : 0,
+              duration: Duration(milliseconds: 500),
+              child: SplashTopPainter())),
          Positioned(child:  Scaffold(
               backgroundColor: Colors.transparent,
               appBar: AppBar(
@@ -46,12 +62,14 @@ class _SplashScreenState extends State<SplashScreen> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Container(
-                      child: Text(
-                        "${getLang(context, "splashTitle")}",
-                        style: TextStyle(
-                            color: Color(0xff6990B9),
-                            fontSize: 40,
-                            fontWeight: FontWeight.bold),
+                      child: AnimatedOpacity(duration: Duration(milliseconds: 1000),opacity: animate ? 1 : 0,
+                        child: Text(
+                          "${getLang(context, "splashTitle")}",
+                          style: TextStyle(
+                              color: Color(0xff6990B9),
+                              fontSize: 40,
+                              fontWeight: FontWeight.bold),
+                        ),
                       )),
                   Expanded(
                     child: PageView.builder(
@@ -71,26 +89,30 @@ class _SplashScreenState extends State<SplashScreen> {
                         activeDotColor: Colors.orange[300],
                         dotColor: Color(0xff6990B9)),
                   ),
-                  Container(
-                      width: MediaQuery.of(context).size.width * 0.6,
-                      margin: EdgeInsets.only(top: 8, bottom: 24),
-                      padding: EdgeInsets.all(6),
-                      decoration: BoxDecoration(
-                          color: Color(0xff6990B9).withOpacity(0.8),
-                          border: Border.all(color: Colors.black12),
-                          borderRadius: BorderRadius.circular(24)),
-                      child: InkWell(
-                        child: Text(
-                          "${getLang(context, "GetStartedSplash")}",
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                              fontSize: 24,
-                              color: Colors.white,
-                              fontWeight: FontWeight.w500,
-                              letterSpacing: 1.4),
-                        ),
-                        onTap: () {},
-                      ))
+                  AnimatedOpacity(
+                    duration: Duration(milliseconds: 900),
+                    opacity: animate ? 1 : 0,
+                    child: Container(
+                        width: MediaQuery.of(context).size.width * 0.6,
+                        margin: EdgeInsets.only(top: 8, bottom: 24),
+                        padding: EdgeInsets.all(6),
+                        decoration: BoxDecoration(
+                            color: Color(0xff6990B9).withOpacity(0.8),
+                            border: Border.all(color: Colors.black12),
+                            borderRadius: BorderRadius.circular(24)),
+                        child: InkWell(
+                          child: Text(
+                            "${getLang(context, "GetStartedSplash")}",
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                                fontSize: 24,
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                letterSpacing: 1.4),
+                          ),
+                          onTap: () {},
+                        )),
+                  )
                 ],
               )),),
 
