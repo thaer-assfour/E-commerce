@@ -1,6 +1,5 @@
 
-
-import 'package:e_commerce/pages/splash/custompaint.dart';
+import 'package:e_commerce/pages/splash/customPaint.dart';
 import 'package:e_commerce/pages/splash/splashListText.dart';
 import 'package:e_commerce/pages/splash/splashPageDetails.dart';
 import 'package:e_commerce/services/appLocal.dart';
