@@ -1,4 +1,19 @@
 {
   "splashTitle": "Big Store",
-  "GetStartedSplash": "Get Started"
+  "GetStartedSplash": "Get Started",
+  "email" : "Email",
+  "password": "Password",
+  "emailRequired" : "*Email Required",
+  "passwordRequired": "*Password Required",
+  "validEmail": "*Enter a valid email",
+  "weakPassword": "*Weak password",
+  "emailAlreadyInUse": "*Email is already registered",
+  "Already have an account": "Already have an account? ",
+  "userNotFound": "Sorry, Email not found please try again with valid email.",
+  "wrongPassword": "Wrong password, please try again.",
+  "Login here":" Login here",
+  "Login": "Login",
+  "Don't have an account":"Don't have an account, ",
+  "Register here": "Register here.",
+  "Create account": "Create account"
 }

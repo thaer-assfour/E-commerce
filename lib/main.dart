@@ -1,4 +1,6 @@
+import 'package:e_commerce/pages/login/loginPage.dart';
 import 'package:e_commerce/pages/splash/splashScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/services/appLocal.dart';
 import 'package:flutter/services.dart';
@@ -11,10 +13,24 @@ SharedPreferences mySharedPreferences;
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   mySharedPreferences = await SharedPreferences.getInstance();
-  runApp(MyStore());
+  await Firebase.initializeApp();
+
+  Widget _startUpScreen;
+  bool isRunBefore =  mySharedPreferences.getBool('runBefore');
+  if (isRunBefore == null || isRunBefore == false)
+    _startUpScreen = SplashScreen();
+  else
+    _startUpScreen = LoginScreen();
+
+
+  runApp(MyStore(_startUpScreen));
 }
 
 class MyStore extends StatefulWidget {
+  final Widget startupScreen;
+
+ MyStore(this.startupScreen);
+
   @override
   _MyStoreState createState() => _MyStoreState();
 }
@@ -29,9 +45,10 @@ class _MyStoreState extends State<MyStore> {
     ]); // #force to set Orientations to portrait only.
 
     return MaterialApp(
+
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(fontFamily: 'OpenSans'),
-      home: SplashScreen(),
+      theme: ThemeData(fontFamily: 'OpenSans',primaryColor: Color(0xff6990B9),),
+      home: widget.startupScreen,
       localizationsDelegates: [
         AppLocale.delegate ,
         GlobalMaterialLocalizations.delegate ,
