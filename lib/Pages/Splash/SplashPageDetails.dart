@@ -11,7 +11,7 @@ class SplashPageDetails extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
         Padding(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(6),
           child: Image.asset(
             list['image'],
             width: MediaQuery.of(context).size.width / 1.2,
@@ -24,12 +24,16 @@ class SplashPageDetails extends StatelessWidget {
               color: Colors.orange, fontSize: 20, fontWeight: FontWeight.w600),
         ),
         Padding(
-          padding: const EdgeInsets.only(top:8,bottom: 8,right: 16,left: 16),
+          padding:
+              const EdgeInsets.only(top: 4, bottom: 4, right: 16, left: 16),
           child: Text(
             list['description'],
             textAlign: TextAlign.center,
             style: TextStyle(
-                color: Colors.grey, fontSize: 18, fontWeight: FontWeight.w200),
+                height: 1,
+                color: Colors.grey,
+                fontSize: 18,
+                fontWeight: FontWeight.w200),
           ),
         ),
       ],

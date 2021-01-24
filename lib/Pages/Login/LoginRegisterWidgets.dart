@@ -1,5 +1,5 @@
 import 'package:e_commerce/pages/login/CustomTextField.dart';
-import 'package:e_commerce/services/appLocal.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/AppLocal.dart';
 import 'package:flutter/material.dart';
 
 Widget login(context) {

@@ -1,12 +1,12 @@
 import 'package:e_commerce/main.dart';
-import 'package:e_commerce/pages/login/loginPage.dart';
-import 'package:e_commerce/pages/splash/customPaint.dart';
-import 'package:e_commerce/pages/splash/splashListText.dart';
-import 'package:e_commerce/pages/splash/splashPageDetails.dart';
-import 'package:e_commerce/services/appLocal.dart';
+import 'package:e_commerce/pages/login/LoginPage.dart';
+import 'package:e_commerce/pages/splash/CustomPaint.dart';
+import 'package:e_commerce/pages/splash/SplashListText.dart';
+import 'package:e_commerce/pages/splash/SplashPageDetails.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/AppLocal.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
-import 'package:e_commerce/services/languageService.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/LanguageService.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -64,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
                       "${getLang(context, "splashTitle")}",
                       style: TextStyle(
                           color: Color(0xff6990B9),
-                          fontSize: 40,
+                          fontSize: 36,
                           fontWeight: FontWeight.bold),
                     )),
                     Expanded(

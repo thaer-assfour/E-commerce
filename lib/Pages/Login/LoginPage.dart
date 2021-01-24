@@ -1,6 +1,7 @@
+import 'package:e_commerce/Pages/Profile/CompletePageProfile.dart';
 import 'package:e_commerce/pages/login/CustomTextField.dart';
-import 'package:e_commerce/services/appLocal.dart';
-import 'package:e_commerce/services/languageService.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/AppLocal.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/LanguageService.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,7 @@ class _LoginScreenState extends State<LoginScreen> {
   bool _loading = false;
   bool _autoValidate = false;
   String errorMsg = "";
-
+  FirebaseAuth auth;
 
   final GlobalKey<FormState> _loginFormKey = GlobalKey<FormState>();
   final GlobalKey<FormState> _registerFormKey = GlobalKey<FormState>();
@@ -115,7 +116,15 @@ class _LoginScreenState extends State<LoginScreen> {
         UserCredential userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
             email: _email,
             password: _password
-        );
+        ).then((value) async {
+          User user = value.user;
+          user.sendEmailVerification();
+          Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => CompletePageProfile()));
+          return null;
+        });
+
+
+
       } on FirebaseAuthException catch (error) {
         switch (error.code) {
           case 'email-already-in-use':
@@ -165,7 +174,7 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     return SafeArea(
-      child: Scaffold(
+      child: Scaffold(resizeToAvoidBottomPadding: true,
           // backgroundColor: Colors.white,
           backgroundColor: Color(0xffF7F7F7),
           appBar: AppBar(

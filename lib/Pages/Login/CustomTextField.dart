@@ -1,18 +1,22 @@
 import 'package:flutter/material.dart';
 
 class CustomTextField extends StatelessWidget {
-  CustomTextField(
-      {this.icon,
-      this.labelText,
-      this.obsecure = false,
-      this.validator,
-      this.onSaved});
+  CustomTextField({this.icon,
+    this.hint,
+    this.labelText,
+    this.obsecure = false,
+    this.validator,
+    this.onSaved,
+    this.prefixText,this.keyboardType});
 
   final FormFieldSetter<String> onSaved;
-  final Icon icon;
+  final Widget icon;
   final String labelText;
   final bool obsecure;
   final FormFieldValidator<String> validator;
+  final String hint;
+  String prefixText;
+  String keyboardType;
 
   @override
   Widget build(BuildContext context) {
@@ -22,31 +26,40 @@ class CustomTextField extends StatelessWidget {
         onSaved: onSaved,
         validator: validator,
         autofocus: false,
+        keyboardType: (keyboardType == "number") ? TextInputType.phone : TextInputType.text,
         obscureText: obsecure,
         style: TextStyle(
           fontSize: 18,
           height: 1.2,
         ),
         decoration: InputDecoration(
-            hintStyle: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+            prefixText: prefixText,
+            hintText: hint,
+            hintStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 20),
             labelText: labelText,
             enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(
-                color: Theme.of(context).primaryColor,
+                color: Theme
+                    .of(context)
+                    .primaryColor,
                 width: 1,
               ),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(16),
               borderSide: BorderSide(
-                color: Theme.of(context).primaryColor,
+                color: Theme
+                    .of(context)
+                    .primaryColor,
                 width: 1.5,
               ),
             ),
             prefixIcon: Padding(
               child: IconTheme(
-                data: IconThemeData(color: Theme.of(context).primaryColor),
+                data: IconThemeData(color: Theme
+                    .of(context)
+                    .primaryColor),
                 child: icon,
               ),
               padding: EdgeInsets.only(left: 10, right: 16),
@@ -69,7 +82,7 @@ Widget customButton(
       ),
       color: color,
       shape:
-          RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
+      RoundedRectangleBorder(borderRadius: new BorderRadius.circular(30.0)),
     ),
   );
 }

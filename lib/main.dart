@@ -1,8 +1,8 @@
-import 'package:e_commerce/pages/login/loginPage.dart';
-import 'package:e_commerce/pages/splash/splashScreen.dart';
+import 'package:e_commerce/pages/login/LoginPage.dart';
+import 'package:e_commerce/pages/splash/SplashScreen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:e_commerce/services/appLocal.dart';
+import 'file:///D:/Android/FlutterProjects/E-commerce/lib/services/language/AppLocal.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -1,6 +1,6 @@
 
-import 'package:e_commerce/pages/login/loginPage.dart';
-import 'package:e_commerce/pages/splash/splashScreen.dart';
+import 'package:e_commerce/pages/login/LoginPage.dart';
+import 'package:e_commerce/pages/splash/SplashScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:e_commerce/main.dart';
 
