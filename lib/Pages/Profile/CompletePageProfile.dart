@@ -1,5 +1,6 @@
 import 'package:e_commerce/Pages/Login/CustomTextField.dart';
 import 'package:flutter/material.dart';
+import 'package:geocoder/geocoder.dart';
 import 'package:geolocator/geolocator.dart';
 
 class CompletePageProfile extends StatefulWidget {
@@ -10,6 +11,7 @@ class CompletePageProfile extends StatefulWidget {
 class _CompletePageProfileState extends State<CompletePageProfile> {
   double lat;
   double lon;
+  String address;
   Position position;
 
   Future _determinePosition() async {
@@ -94,7 +96,24 @@ class _CompletePageProfileState extends State<CompletePageProfile> {
                                 ? Icons.location_searching
                                 : Icons.my_location),
                             onPressed: () {
-                              _determinePosition().then((value) {
+                              _determinePosition().then((value) async {
+                                final coordinates = new Coordinates(position.latitude, position.longitude);
+                                var addresses = await Geocoder.local.findAddressesFromCoordinates(coordinates);
+                                print(addresses[0].postalCode);
+                                print(addresses[0].locality);
+                                print(addresses[0].countryCode);
+                                print(addresses[0].addressLine);
+                                print(addresses[0].countryName);
+                                print(addresses[2].adminArea);
+                                print(addresses[2].featureName);
+                                print(addresses[2].subAdminArea);
+                                print(addresses[2].subLocality);
+                                print(addresses[2].subThoroughfare);
+                                print(addresses[2].thoroughfare);
+
+
+                                print(lat);
+                                print(lon);
                                 setState(() {
                                   lat = position.latitude;
                                   lon = position.longitude;

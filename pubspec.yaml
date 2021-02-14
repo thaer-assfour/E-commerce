@@ -37,6 +37,7 @@ dependencies:
   firebase_auth:
   geolocator: ^6.1.14
   geocoder: ^0.2.1
+  bot_toast: ^3.0.5
 
 dev_dependencies:
   flutter_test:
